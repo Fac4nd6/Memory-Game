@@ -60,7 +60,7 @@ cartas.forEach(element => {
 
     // carta tapada
     carta.style.backgroundImage =
-        "url(/img/reverso.png)";
+        "url(./img/reverso.png)";
 
     tablero.appendChild(carta);
 
@@ -79,7 +79,7 @@ cartas.forEach(element => {
         let girar = carta.dataset.imagen;
 
         carta.style.backgroundImage =
-            "url(/img/" + girar + ".png)";
+            "url(./img/" + girar + ".png)";
 
         // --------------------
         // PRIMER CLICK
@@ -132,10 +132,10 @@ cartas.forEach(element => {
                 setTimeout(() => {
 
                     primeraCarta.style.backgroundImage =
-                        "url(../img/reverso.png)";
+                        "url(./img/reverso.png)";
 
                     segundaCarta.style.backgroundImage =
-                        "url(../img/reverso.png)";
+                        "url(./img/reverso.png)";
 
                     primeraCarta = null;
                     segundaCarta = null;
