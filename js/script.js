@@ -132,10 +132,10 @@ cartas.forEach(element => {
                 setTimeout(() => {
 
                     primeraCarta.style.backgroundImage =
-                        "url(/img/reverso.png)";
+                        "url(../img/reverso.png)";
 
                     segundaCarta.style.backgroundImage =
-                        "url(/img/reverso.png)";
+                        "url(../img/reverso.png)";
 
                     primeraCarta = null;
                     segundaCarta = null;
