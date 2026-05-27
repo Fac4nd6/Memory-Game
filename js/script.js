@@ -9,6 +9,7 @@ let movimientos = 0;
 let tiempo = 0;
 
 let bloqueado = false;
+let juegoTerminado = false;
 
 // --------------------
 // TEXTOS
@@ -66,6 +67,12 @@ cartas.forEach(element => {
 
     carta.addEventListener("click", () => {
 
+        // juego terminado
+        if (juegoTerminado) return;
+
+        // evitar bugs
+        if (bloqueado) return;
+
         // evitar bugs
         if (bloqueado) return;
 
@@ -114,6 +121,20 @@ cartas.forEach(element => {
             ) {
 
                 score++;
+                // GANAR
+                if (score === 9) {
+
+                    juegoTerminado = true;
+
+                    setTimeout(() => {
+
+                        alert("Ganaste 🎉");
+
+                        location.reload();
+
+                    }, 500);
+
+                }
 
                 textoScore.textContent =
                     "Score: " + score;
@@ -158,6 +179,9 @@ cartas.forEach(element => {
 
 setInterval(() => {
 
+    // evitar que siga contando
+    if (juegoTerminado) return;
+
     tiempo++;
 
     let minutos =
@@ -173,5 +197,19 @@ setInterval(() => {
 
     textoTiempo.textContent =
         "Tiempo: " + minutos + ":" + segundos;
+
+    // --------------------
+    // PERDER
+    // --------------------
+
+    if (tiempo >= 150) {
+
+        juegoTerminado = true;
+
+        alert("Perdiste 😢");
+
+        location.reload();
+
+    }
 
 }, 1000);
